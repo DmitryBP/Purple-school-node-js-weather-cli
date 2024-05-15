@@ -1,4 +1,5 @@
 import chalk from 'chalk';
+import dedent from 'dedent-js';
 
 export const printError = (error) => {
   console.log(chalk.bgRed(' ERROR ') + ' ' + error);
@@ -10,9 +11,11 @@ export const printSuccess = (message) => {
 
 export const printHelp = () => {
   console.log(
-    chalk.bgCyan('HELP' + '\n' + 'без пораметров - вывод погоды'
-    + '\n' + '-h - помощь'
-    + '\n' + '-s - город'
-    + '\n' + '-t API KEY'
-    ));
+    dedent`${chalk.bgCyan(' HELP ')}
+		Без параметров - вывод погоды
+		-s [CITY] для установки города
+		-h для вывода помощи
+		-t [API_KEY] для сохранения токена
+		`
+	);
 };
